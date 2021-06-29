@@ -9,8 +9,8 @@ autoinstall:
       uri: http://archive.ubuntu.com/ubuntu
     - arches: [default]
       uri: http://ports.ubuntu.com/ubuntu-ports
-  identity: {hostname: hashmap, password: $6$gbZVFLmGLEsHb7PX$Nc09cfHSKCA1cViqhNexprf3DOTHbQxfbHB32jTgTbXMZBr/ePW4Y6Pve68/bZTCKxDNp3IIPJLnrPoGsK9Qg0,
-    realname: hashmap, username: hashmap}
+  identity: {hostname: ubuntu, password: ubuntu,
+    realname: hashmap, username: ubuntu}
   keyboard: {layout: us, toggle: null, variant: ''}
   locale: en_US
   network:
