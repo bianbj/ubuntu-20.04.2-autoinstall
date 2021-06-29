@@ -1,0 +1,193 @@
+#cloud-config
+autoinstall:
+  version: 1
+  apt:
+    geoip: true
+    preserve_sources_list: false
+    primary:
+    - arches: [amd64, i386]
+      uri: http://archive.ubuntu.com/ubuntu
+    - arches: [default]
+      uri: http://ports.ubuntu.com/ubuntu-ports
+  identity: {hostname: hashmap, password: $6$gbZVFLmGLEsHb7PX$Nc09cfHSKCA1cViqhNexprf3DOTHbQxfbHB32jTgTbXMZBr/ePW4Y6Pve68/bZTCKxDNp3IIPJLnrPoGsK9Qg0,
+    realname: hashmap, username: hashmap}
+  keyboard: {layout: us, toggle: null, variant: ''}
+  locale: en_US
+  network:
+    ethernets:
+      eth0: {dhcp4: true}
+      eth1: {dhcp4: true}
+    version: 2
+  ssh:
+    allow-pw: true
+    authorized-keys: []
+    install-server: true
+  storage:
+    config:
+    - {ptable: gpt, path: /dev/sda, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sda}
+    - {ptable: gpt, path: /dev/sdb, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdb}
+    - {ptable: gpt, path: /dev/sdc, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdc}
+    - {ptable: gpt, path: /dev/sdd, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdd}
+    - {ptable: gpt, path: /dev/sde, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sde}
+    - {ptable: gpt, path: /dev/sdf, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdf}
+    - {ptable: gpt, path: /dev/sdg, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdg}
+    - {ptable: gpt, path: /dev/sdh, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdh}
+    - {ptable: gpt, path: /dev/sdi, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdi}
+    - {ptable: gpt, path: /dev/sdj, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdj}
+    - {ptable: gpt, path: /dev/sdk, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdk}
+    - {ptable: gpt, path: /dev/sdl, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdl}
+    - {ptable: gpt, path: /dev/sdm, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdm}
+    - {ptable: gpt, path: /dev/sdn, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdn}
+    - {ptable: gpt, path: /dev/sdo, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdo}
+    - {ptable: gpt, path: /dev/sdp, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdp}
+    - {ptable: gpt, path: /dev/sdq, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdq}
+    - {ptable: gpt, path: /dev/sdr, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdr}
+    - {ptable: gpt, path: /dev/sds, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sds}
+    - {ptable: gpt, path: /dev/sdt, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdt}
+    - {ptable: gpt, path: /dev/sdu, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdu}
+    - {ptable: gpt, path: /dev/sdv, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdv}
+    - {ptable: gpt, path: /dev/sdw, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdw}
+    - {ptable: gpt, path: /dev/sdx, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdx}
+    - {ptable: gpt, path: /dev/sdy, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdy}
+    - {ptable: gpt, path: /dev/sdz, wipe: superblock-recursive, preserve: false, name: '',
+      grub_device: false, type: disk, id: disk-sdz}
+    - {device: disk-sdy, size: 536870912, wipe: superblock, flag: boot, number: 1,
+      preserve: false, grub_device: true, type: partition, id: partition-0}
+    - {fstype: fat32, volume: partition-0, preserve: false, type: format, id: format-0}
+    - {device: format-0, path: /boot/efi, type: mount, id: mount-0}
+    - {device: disk-sdy, size: 959657803776, wipe: superblock, flag: '', number: 2,
+      preserve: false, grub_device: false, type: partition, id: partition-1}
+    - {fstype: ext4, volume: partition-1, preserve: false, type: format, id: format-1}
+    - {device: format-1, path: /, type: mount, id: mount-1}
+    - {device: disk-sdz, size: 960196058624, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-2}
+    - {fstype: ext4, volume: partition-2, preserve: false, type: format, id: format-2}
+    - {device: format-2, path: /data, type: mount, id: mount-2}
+    - {device: disk-sda, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-3}
+    - {fstype: ext4, volume: partition-3, preserve: false, type: format, id: format-3}
+    - {device: format-3, path: /data1, type: mount, id: mount-3}
+    - {device: disk-sdb, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-4}
+    - {fstype: ext4, volume: partition-4, preserve: false, type: format, id: format-4}
+    - {device: format-4, path: /data2, type: mount, id: mount-4}
+    - {device: disk-sdc, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-5}
+    - {fstype: ext4, volume: partition-5, preserve: false, type: format, id: format-5}
+    - {device: format-5, path: /data3, type: mount, id: mount-5}
+    - {device: disk-sdd, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-6}
+    - {fstype: ext4, volume: partition-6, preserve: false, type: format, id: format-6}
+    - {device: format-6, path: /data4, type: mount, id: mount-6}
+    - {device: disk-sde, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-7}
+    - {fstype: ext4, volume: partition-7, preserve: false, type: format, id: format-7}
+    - {device: format-7, path: /data5, type: mount, id: mount-7}
+    - {device: disk-sdf, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-8}
+    - {fstype: ext4, volume: partition-8, preserve: false, type: format, id: format-8}
+    - {device: format-8, path: /data6, type: mount, id: mount-8}
+    - {device: disk-sdg, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-9}
+    - {fstype: ext4, volume: partition-9, preserve: false, type: format, id: format-9}
+    - {device: format-9, path: /data7, type: mount, id: mount-9}
+    - {device: disk-sdh, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-10}
+    - {fstype: ext4, volume: partition-10, preserve: false, type: format, id: format-10}
+    - {device: format-10, path: /data8, type: mount, id: mount-10}
+    - {device: disk-sdi, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-11}
+    - {fstype: ext4, volume: partition-11, preserve: false, type: format, id: format-11}
+    - {device: format-11, path: /data9, type: mount, id: mount-11}
+    - {device: disk-sdj, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-12}
+    - {fstype: ext4, volume: partition-12, preserve: false, type: format, id: format-12}
+    - {device: format-12, path: /data10, type: mount, id: mount-12}
+    - {device: disk-sdk, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-13}
+    - {fstype: ext4, volume: partition-13, preserve: false, type: format, id: format-13}
+    - {device: format-13, path: /data11, type: mount, id: mount-13}
+    - {device: disk-sdl, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-14}
+    - {fstype: ext4, volume: partition-14, preserve: false, type: format, id: format-14}
+    - {device: format-14, path: /data12, type: mount, id: mount-14}
+    - {device: disk-sdm, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-15}
+    - {fstype: ext4, volume: partition-15, preserve: false, type: format, id: format-15}
+    - {device: format-15, path: /data13, type: mount, id: mount-15}
+    - {device: disk-sdn, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-16}
+    - {fstype: ext4, volume: partition-16, preserve: false, type: format, id: format-16}
+    - {device: format-16, path: /data14, type: mount, id: mount-16}
+    - {device: disk-sdo, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-17}
+    - {fstype: ext4, volume: partition-17, preserve: false, type: format, id: format-17}
+    - {device: format-17, path: /data15, type: mount, id: mount-17}
+    - {device: disk-sdp, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-18}
+    - {fstype: ext4, volume: partition-18, preserve: false, type: format, id: format-18}
+    - {device: format-18, path: /data16, type: mount, id: mount-18}
+    - {device: disk-sdq, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-19}
+    - {fstype: ext4, volume: partition-19, preserve: false, type: format, id: format-19}
+    - {device: format-19, path: /data17, type: mount, id: mount-19}
+    - {device: disk-sdr, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-20}
+    - {fstype: ext4, volume: partition-20, preserve: false, type: format, id: format-20}
+    - {device: format-20, path: /data18, type: mount, id: mount-20}
+    - {device: disk-sds, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-21}
+    - {fstype: ext4, volume: partition-21, preserve: false, type: format, id: format-21}
+    - {device: format-21, path: /data19, type: mount, id: mount-21}
+    - {device: disk-sdt, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-22}
+    - {fstype: ext4, volume: partition-22, preserve: false, type: format, id: format-22}
+    - {device: format-22, path: /data20, type: mount, id: mount-22}
+    - {device: disk-sdu, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-23}
+    - {fstype: ext4, volume: partition-23, preserve: false, type: format, id: format-23}
+    - {device: format-23, path: /data21, type: mount, id: mount-23}
+    - {device: disk-sdv, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-24}
+    - {fstype: ext4, volume: partition-24, preserve: false, type: format, id: format-24}
+    - {device: format-24, path: /data22, type: mount, id: mount-24}
+    - {device: disk-sdw, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-25}
+    - {fstype: ext4, volume: partition-25, preserve: false, type: format, id: format-25}
+    - {device: format-25, path: /data23, type: mount, id: mount-25}
+    - {device: disk-sdx, size: 16000898564096, wipe: superblock, flag: '', number: 1,
+      preserve: false, grub_device: false, type: partition, id: partition-26}
+    - {fstype: ext4, volume: partition-26, preserve: false, type: format, id: format-26}
+    - {device: format-26, path: /data24, type: mount, id: mount-26}
+  late-commands:
+    - sed -i 's#GRUB_CMDLINE_LINUX=""#GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"#g' /target/etc/default/grub
+    - curtin in-target --target=/target -- update-grub2
+    - mv /target/usr/lib/modules/5.4.0-65-generic/kernel/drivers/scsi/mpt3sas/mpt3sas.ko /target/
+    - curtin in-target --target=/target -- update-initramfs -u
+    - mv /target/mpt3sas.ko /target/usr/lib/modules/5.4.0-65-generic/kernel/drivers/scsi/mpt3sas/
+    - poweroff -f
